@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blessed Mukundi Mangena — E‑Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Blessed Mukundi Mangena — Critical Thinker | Problem Solver"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* Core Palette — corporate, neutral, accessible */
+        --bg: #0f172a; /* slate-900 */
+        --bg-soft: #111827; /* gray-900 */
+        --surface: #111827; /* section surface */
+        --card: #0b1324; /* deep card */
+        --text: #e5e7eb; /* gray-200 */
+        --muted: #94a3b8; /* slate-400 */
+        --brand: #38bdf8; /* sky-400 */
+        --brand-weak: rgba(56, 189, 248, 0.15);
+        --accent: #22c55e; /* green-500 */
+        --link: #60a5fa; /* blue-400 */
+        --shadow: 0 10px 30px rgba(2, 6, 23, 0.5);
+        --ring: 0 0 0 3px rgba(56, 189, 248, 0.35);
+
+        --radius: 18px;
+        --maxw: 1100px;
+        --pad: clamp(16px, 2vw, 28px);
+      }
+      :root.light {
+        --bg: #f8fafc; /* slate-50 */
+        --bg-soft: #f1f5f9; /* slate-100 */
+        --surface: #ffffff; /* white */
+        --card: #ffffff;
+        --text: #0f172a; /* slate-900 */
+        --muted: #475569; /* slate-600 */
+        --brand: #0ea5e9; /* sky-500 */
+        --brand-weak: rgba(14, 165, 233, 0.12);
+        --accent: #16a34a; /* green-600 */
+        --link: #2563eb; /* blue-600 */
+        --shadow: 0 8px 24px rgba(2, 6, 23, 0.12);
+        --ring: 0 0 0 3px rgba(14, 165, 233, 0.25);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+          "Segoe UI Emoji";
+        background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      /* Layout */
+      .container {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 var(--pad);
+      }
+      section {
+        padding: 80px 0;
+        scroll-margin-top: 90px;
+      }
+
+      /* Header */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: saturate(120%) blur(8px);
+        background: color-mix(in srgb, var(--bg-soft) 80%, transparent);
+        border-bottom: 1px solid
+          color-mix(in srgb, var(--muted) 20%, transparent);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        height: 72px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        letter-spacing: 0.3px;
+      }
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--brand), var(--accent));
+        box-shadow: var(--shadow);
+      }
+      .nav-links {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .nav-links a {
+        font-weight: 500;
+        padding: 6px 10px;
+        border-radius: 10px;
+      }
+      .nav-links a:hover {
+        background: var(--brand-weak);
+        text-decoration: none;
+      }
+
+      .controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .theme-toggle {
+        position: relative;
+        width: 52px;
+        height: 30px;
+        background: var(--brand-weak);
+        border-radius: 999px;
+        border: 1px solid color-mix(in srgb, var(--brand) 40%, transparent);
+        cursor: pointer;
+      }
+      .theme-thumb {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--brand);
+        transition: transform 0.25s ease;
+        box-shadow: var(--shadow);
+      }
+      :root.light .theme-thumb {
+        transform: translateX(22px);
+      }
+
+      select.lang {
+        background: var(--surface);
+        color: var(--text);
+        border: 1px solid color-mix(in srgb, var(--muted) 30%, transparent);
+        border-radius: 12px;
+        padding: 6px 10px;
+        box-shadow: var(--shadow);
+      }
+
+      /* Hero */
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        gap: 28px;
+      }
+      .hero h1 {
+        font-size: clamp(28px, 5vw, 56px);
+        line-height: 1.05;
+        margin: 0 0 12px;
+      }
+      .tagline {
+        font-weight: 600;
+        color: var(--muted);
+        letter-spacing: 0.6px;
+      }
+      .intro {
+        margin-top: 16px;
+        font-size: clamp(16px, 2.2vw, 18px);
+        color: var(--text);
+        opacity: 0.9;
+      }
+      .cta {
+        margin-top: 24px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        border-radius: 14px;
+        border: 1px solid color-mix(in srgb, var(--brand) 35%, transparent);
+        background: linear-gradient(180deg, var(--brand-weak), transparent);
+        color: var(--text);
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: var(--shadow);
+      }
+      .btn:hover {
+        filter: brightness(1.05);
+        text-decoration: none;
+      }
+      .btn.secondary {
+        background: none;
+        border-color: color-mix(in srgb, var(--muted) 30%, transparent);
+      }
+
+      .portrait {
+        width: min(320px, 100%);
+        justify-self: center;
+        aspect-ratio: 1/1;
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid color-mix(in srgb, var(--muted) 25%, transparent);
+        box-shadow: var(--shadow);
+        background: linear-gradient(135deg, var(--brand-weak), transparent);
+      }
+      .portrait img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .portrait .fallback {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        font-size: 48px;
+        color: var(--muted);
+      }
+
+      /* Sections */
+      .section-title {
+        font-size: clamp(22px, 3vw, 32px);
+        margin-bottom: 22px;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      /* About */
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+        background: linear-gradient(
+          180deg,
+          var(--surface),
+          color-mix(in srgb, var(--surface) 70%, transparent)
+        );
+        padding: 24px;
+        border-radius: var(--radius);
+        border: 1px solid color-mix(in srgb, var(--muted) 22%, transparent);
+      }
+
+      /* Skills */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid color-mix(in srgb, var(--muted) 20%, transparent);
+        border-radius: var(--radius);
+        padding: 18px;
+        box-shadow: var(--shadow);
+      }
+      .card h3 {
+        margin-top: 0;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--brand-weak);
+        margin: 6px 6px 0 0;
+        font-weight: 600;
+        border: 1px solid color-mix(in srgb, var(--brand) 30%, transparent);
+      }
+
+      /* Education */
+      .edu {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .edu-item {
+        background: var(--card);
+        border: 1px solid color-mix(in srgb, var(--muted) 22%, transparent);
+        padding: 16px;
+        border-radius: var(--radius);
+      }
+
+      /* Projects */
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .project {
+        background: var(--card);
+        border: 1px solid color-mix(in srgb, var(--muted) 22%, transparent);
+        border-radius: var(--radius);
+        overflow: hidden;
+        display: grid;
+        grid-template-rows: 160px auto;
+      }
+      .project .cover {
+        background: linear-gradient(135deg, var(--brand-weak), transparent);
+        height: 160px;
+        display: grid;
+        place-items: center;
+        border-bottom: 1px solid
+          color-mix(in srgb, var(--muted) 20%, transparent);
+      }
+      .project .cover img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 0;
+        display: block;
+      }
+      .project .body {
+        padding: 14px 16px 18px;
+      }
+      .project .tools {
+        margin-top: 6px;
+      }
+
+      /* Blog */
+      .blog-list {
+        display: grid;
+        gap: 12px;
+      }
+      .post {
+        background: var(--card);
+        border: 1px solid color-mix(in srgb, var(--muted) 22%, transparent);
+        border-radius: var(--radius);
+        padding: 16px;
+      }
+      .post small {
+        color: var(--muted);
+      }
+
+      /* Hobbies */
+      .hobbies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      /* Contact */
+      form.contact {
+        display: grid;
+        gap: 12px;
+        background: var(--card);
+        border: 1px solid color-mix(in srgb, var(--muted) 22%, transparent);
+        border-radius: var(--radius);
+        padding: 16px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px 12px;
+        border-radius: 12px;
+        border: 1px solid color-mix(in srgb, var(--muted) 30%, transparent);
+        background: var(--surface);
+        color: var(--text);
+        font: inherit;
+      }
+      textarea {
+        min-height: 140px;
+        resize: vertical;
+      }
+      input:focus,
+      textarea:focus,
+      select.lang:focus {
+        outline: none;
+        box-shadow: var(--ring);
+      }
+
+      /* Footer */
+      footer {
+        padding: 40px 0;
+        color: var(--muted);
+        border-top: 1px solid color-mix(in srgb, var(--muted) 20%, transparent);
+      }
+      .socials {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      /* Utilities */
+      .sr {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+      .hide {
+        display: none !important;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .cards {
+          grid-template-columns: 1fr;
+        }
+        .projects {
+          grid-template-columns: 1fr;
+        }
+        .about {
+          grid-template-columns: 1fr;
+        }
+        .row {
+          grid-template-columns: 1fr;
+        }
+        .nav-links {
+          display: none;
+        } /* Keep header clean on mobile */
+      }
+
+      /* Reveal animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .reveal.show {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <span>Blessed M. Mangena</span>
+        </div>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#home" data-i18n="nav.home">Home</a>
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#skills" data-i18n="nav.skills">Skills</a>
+          <a href="#education" data-i18n="nav.education">Education</a>
+          <a href="#projects" data-i18n="nav.projects">Projects</a>
+          <a href="#blog" data-i18n="nav.blog">Blog</a>
+          <a href="#hobbies" data-i18n="nav.hobbies">Hobbies</a>
+        </nav>
+        <div class="controls">
+          <label
+            class="theme-toggle"
+            title="Toggle theme"
+            aria-label="Toggle theme"
+          >
+            <input class="sr" id="themeToggle" type="checkbox" />
+            <span class="theme-thumb"></span>
+          </label>
+          <select class="lang" id="langSelect" aria-label="Language selector">
+            <option value="en">English</option>
+            <option value="sn">Shona (demo)</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="home" class="container">
+        <div class="hero">
+          <div>
+            <h1 class="reveal" data-i18n="hero.name">
+              Blessed Mukundi Mangena
+            </h1>
+            <div class="tagline reveal" data-i18n="hero.tag">
+              Critical Thinker | Problem Solver
+            </div>
+            <p class="intro reveal" data-i18n="hero.intro">
+              Final‑year Electrical & Computer Engineer passionate about
+              building elegant, reliable systems. I love to learn and enjoy a
+              good challenge.
+            </p>
+            <div class="cta reveal">
+              <a class="btn" href="#projects" data-i18n="cta.viewProjects"
+                >View Projects</a
+              >
+              <a
+                class="btn secondary"
+                href="assets/resume.pdf"
+                download
+                data-i18n="cta.downloadCV"
+                >Download Résumé</a
+              >
+              <a class="btn" href="#contact">Get in Touch</a>
+            </div>
+          </div>
+          <div class="portrait reveal" aria-label="Professional portrait">
+            <!-- Replace src with your photo: assets/profile.jpg -->
+            <img
+              src="assets/profile.jpeg"
+              alt="Portrait of Blessed Mukundi Mangena"
+              onerror="this.replaceWith(document.getElementById('pf-fallback').content.cloneNode(true))"
+            />
+            <template id="pf-fallback">
+              <div class="fallback">BM</div>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="container">
+          <h2 class="section-title" data-i18n="about.title">About Me</h2>
+          <div class="about reveal">
+            <div>
+              <p data-i18n="about.p1">
+                I'm a final‑year Electrical and Computer Engineer focused on
+                embedded systems, cloud‑connected solutions, and data‑driven
+                products.
+              </p>
+              <p data-i18n="about.p2">
+                <strong>I love to learn and enjoy a good challenge</strong>,
+                especially where rigorous engineering meets human‑centred
+                design.
+              </p>
+            </div>
+            <div>
+              <ul class="muted">
+                <li data-i18n="about.b1">Based in Cape Town, South Africa</li>
+                <li data-i18n="about.b2">
+                  Interested in energy systems, ML, and IoT
+                </li>
+                <li data-i18n="about.b3">
+                  Open to internships and graduate roles
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="container">
+          <h2 class="section-title" data-i18n="skills.title">Skills</h2>
+          <div class="cards reveal">
+            <div class="card">
+              <h3 data-i18n="skills.hardTitle">Hard Skills</h3>
+              <p class="muted" data-i18n="skills.hardDesc">
+                Engineering, coding, and technical competencies. These skills
+                have been used/gained in real projects either during internships
+                , personal or coursework
+              </p>
+              <div class="tools">
+                <span class="chip">C/C++</span>
+                <span class="chip">Python</span>
+                <span class="chip">Java</span>
+                <span class="chip">Verilog/Vivado</span>
+                <span class="chip">MATLAB</span>
+                <span class="chip">ESP32 / STM32</span>
+                <span class="chip">AWS</span>
+                <span class="chip">SQL / PostgreSQL</span>
+                <span class="chip">Linux</span>
+                <span class="chip">Git/GitHub</span>
+                <span class="chip">PCB Design</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3 data-i18n="skills.softTitle">Soft Skills</h3>
+              <p class="muted" data-i18n="skills.softDesc">
+                Leadership, teamwork, and problem‑solving.
+              </p>
+              <div class="tools">
+                <span class="chip" data-i18n="skills.soft1"
+                  >Team Leadership</span
+                >
+                <span class="chip" data-i18n="skills.soft2">Collaboration</span>
+                <span class="chip" data-i18n="skills.soft3"
+                  >Critical Thinking</span
+                >
+                <span class="chip" data-i18n="skills.soft4">Communication</span>
+                <span class="chip" data-i18n="skills.soft5">Adaptability</span>
+                <span class="chip" data-i18n="skills.soft6"
+                  >Time Management</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education">
+        <div class="container">
+          <h2 class="section-title" data-i18n="edu.title">Education</h2>
+          <div class="edu reveal">
+            <div class="edu-item">
+              <strong data-i18n="edu.degree"
+                >BSc Electrical & Computer Engineering</strong
+              >
+              <div class="muted" data-i18n="edu.school">
+                University of Cape Town — Final Year
+              </div>
+              <div class="muted" data-i18n="edu.progress">
+                Current academic progress: On track to graduate
+              </div>
+            </div>
+            <div class="edu-item">
+              <strong data-i18n="edu.degree"
+                >St Pauls Musami High School</strong
+              >
+              <div class="muted" data-i18n="edu.school">IGSCE A Levels</div>
+              <div class="muted" data-i18n="edu.progress">
+                Completed 2019 : with 14/15 points
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="container">
+          <h2 class="section-title" data-i18n="proj.title">Projects</h2>
+          <div class="projects reveal" id="projectsGrid">
+            <!-- Project cards populated below (editable placeholders) -->
+            <article class="project">
+              <div class="cover">
+                <img src="assets/stlf.jfif" alt="STLF" />
+              </div>
+              <div class="body">
+                <h3>Short-Term Load Forecasting Using Machine Learning</h3>
+                <p>
+                  Testing the effectiveness of using Machine Learning techniques
+                  to help utility companies predict load in an Electric Grid.
+                  Final Year project supervised by Komla Folly.
+                </p>
+                <div class="tools">
+                  <span class="chip">TensorFlow</span
+                  ><span class="chip">Machine Learning</span
+                  ><span class="chip">Data-Processing</span
+                  ><span class="chip">Python</span
+                  ><span class="chip">scikit-learn</span>
+                </div>
+                <p>
+                  <a
+                    href="https://github.com/mukundimangena"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub</a
+                  >
+                </p>
+              </div>
+            </article>
+            <article class="project">
+              <div class="cover">
+                <img src="assets/dea.png" alt="STLF" />
+              </div>
+              <div class="body">
+                <h3>Digital Encryption Accelerator (DEA)</h3>
+                <p>
+                  FPGA‑accelerated XOR encryption with performance comparison
+                  across C, Python, and Verilog.Creating and testing the
+                  perfomance of FPGA based implementations of data encryption
+                  compared with software based implementation.
+                </p>
+                <div class="tools">
+                  <span class="chip">Verilog</span
+                  ><span class="chip">Vivado</span><span class="chip">FPGA</span
+                  ><span class="chip">C & Python</span>
+                </div>
+                <p>
+                  <a
+                    href="https://github.com/yourusername/dea"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub</a
+                  >
+                </p>
+              </div>
+            </article>
+            <article class="project">
+              <div class="cover">
+                <img src="assets/harvest.jfif" alt="STLF" />
+              </div>
+              <div class="body">
+                <h3>HarvestPal — Your AI Powered Agronomist</h3>
+                <p>
+                  An AI powered disease detection and crop management system for
+                  lower‑income farmers. It uses computer vision to identify crop
+                  diseases and provides actionable insights in real time.
+                </p>
+                <div class="tools">
+                  <span class="chip">Vue-js</span>
+                  <span class="chip">FastAPI</span
+                  ><span class="chip">PostgreSQL</span
+                  ><span class="chip">AWS</span>
+                </div>
+                <p>
+                  <a
+                    href="https://github.com/mukundimangena/harvestPal"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub</a
+                  >
+                </p>
+              </div>
+            </article>
+
+            <article class="project">
+              <div class="cover">
+                <img src="assets/penguinco.jpg" alt="STLF" />
+              </div>
+              <div class="body">
+                <h3>PenguinCo - Saving the African Penguin.</h3>
+                <p>
+                  A project aimed at giving birdlife south africa a platform to
+                  help track the activity on their penguin colonies. It uses
+                  computer vision on an ESP32-CAM to detect and track penguins
+                  in real time, providing valuable data for conservation
+                  efforts.
+                </p>
+                <div class="tools">
+                  <span class="chip">ESP32‑CAM</span
+                  ><span class="chip">Computer Vision</span
+                  ><span class="chip">UI Design</span>
+                </div>
+                <p>
+                  <a
+                    href="https://github.com/mukundimangena/PenguinCo"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub</a
+                  >
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOBBIES -->
+      <section id="hobbies">
+        <div class="container">
+          <h2 class="section-title" data-i18n="hobbies.title">Hobbies</h2>
+          <div class="hobbies reveal" id="hobbyChips">
+            <span class="chip">Rugby</span>
+            <span class="chip">Podcasting</span>
+            <span class="chip">Robotics</span>
+            <span class="chip">Hiking</span>
+          </div>
+        </div>
+      </section>
+      <!-- BLOG -->
+      <section id="blog">
+        <div class="container">
+          <h2 class="section-title">Blog</h2>
+          <div class="blog-list reveal" id="blogList">
+            <!-- Posts will be rendered from markdown below -->
+          </div>
+        </div>
+      </section>
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="container">
+          <h2 class="section-title" data-i18n="contact.title">Contact</h2>
+          <form class="contact reveal" id="contactForm">
+            <div class="row">
+              <label>
+                <span data-i18n="contact.name">Name</span>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your name"
+                  required
+                />
+              </label>
+              <label>
+                <span data-i18n="contact.email">Email</span>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </label>
+            </div>
+            <label>
+              <span data-i18n="contact.subject">Subject</span>
+              <input
+                type="text"
+                name="subject"
+                placeholder="How can I help?"
+                required
+              />
+            </label>
+            <label>
+              <span data-i18n="contact.message">Message</span>
+              <textarea
+                name="message"
+                placeholder="Write your message..."
+                required
+              ></textarea>
+            </label>
+            <div class="cta">
+              <button class="btn" type="submit" data-i18n="contact.send">
+                Send Email
+              </button>
+              <a
+                class="btn secondary"
+                href="mailto:btmukundimangena@gmail.com"
+                id="directMail"
+                >btmukundimangena@gmail.com</a
+              >
+            </div>
+          </form>
+          <div class="cta" style="margin-top: 14px">
+            <a
+              class="btn"
+              href="assets/resume.pdf"
+              download
+              data-i18n="cta.downloadCV"
+              >Download Résumé</a
+            >
+            <a
+              class="btn secondary"
+              href="https://github.com/mukundimangena"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+            <a
+              class="btn secondary"
+              href="https://www.linkedin.com/in/yourprofile"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="socials">
+          <a href="#home">↑ Back to top</a>
+        </div>
+        <p class="muted">
+          © <span id="year"></span> Blessed Mukundi Mangena. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // ======= Theme Toggle (persisted) =======
+      const root = document.documentElement;
+      const themeToggle = document.getElementById("themeToggle");
+      const storedTheme = localStorage.getItem("theme");
+      if (storedTheme === "light") root.classList.add("light");
+      themeToggle.checked = root.classList.contains("light");
+      themeToggle.addEventListener("change", () => {
+        root.classList.toggle("light");
+        localStorage.setItem(
+          "theme",
+          root.classList.contains("light") ? "light" : "dark"
+        );
+      });
+      // Minimal i18n object so code won't break
+      const i18n = {
+        en: {},
+        sn: {},
+      };
+
+      // ======= Reveal on scroll =======
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("show");
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      // ======= Year =======
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const langSelect = document.getElementById("langSelect");
+      const applyLang = (lang) => {
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (i18n[lang] && i18n[lang][key]) el.textContent = i18n[lang][key];
+        });
+        localStorage.setItem("lang", lang);
+      };
+      const savedLang = localStorage.getItem("lang") || "en";
+      langSelect.value = savedLang;
+      applyLang(savedLang);
+      langSelect.addEventListener("change", (e) => applyLang(e.target.value));
+
+      // ======= Simple Markdown Renderer for Blog =======
+      const posts = [
+        {
+          title: "Why Your Company Probably Needs Someone Like Me",
+          date: "2025-08-20",
+          content: `# Why Your Company Probably Needs Someone Like Me
+
+Let’s be honest — every company secretly dreams of that hire who can fix a bug, wire up an IoT sensor, explain machine learning *without* turning it into rocket science, and still crack a joke while doing it.  
+Hi 👋, that’s me.
+
+---
+
+## 1. I’m a Problem-Solving Addict
+Throw me a challenge — whether it’s debugging a stubborn system or designing a clean UI — and I’ll chase it like it’s the last slice of pizza at a team lunch. I *enjoy* figuring things out, which makes me dangerous (in the best way possible).
+
+---
+
+## 2. I Live in Two Worlds
+- **Electrical & Computer Engineering brain**: I get how systems work, from embedded boards to network layers.  
+- **Creative tinkerer brain**: I can explain it simply, make it look good on screen, and ensure users don’t rage-quit.
+
+Basically, I can talk to both your hardware team *and* your customers without needing a translator.
+
+---
+
+## 3. I Learn Like It’s a Sport
+Some people binge-watch shows. I binge-learn. SQL, IoT boards, clean web design — if it sounds like a challenge, I’m already halfway through a tutorial. Your company will never have to worry about me getting stuck in a “but I don’t know how to do that” loop.
+
+---
+
+## 4. I Bring Good Vibes
+Work isn’t just about deliverables — it’s about *teams*. I like collaborating, swapping ideas, and celebrating wins (yes, even the small ones like finally fixing a semi-colon bug). Trust me, your Slack channel will be livelier with me around.
+
+---
+
+**TL;DR**  
+Hire me, and you don’t just get an engineer. You get a curious, adaptable, slightly coffee-fueled human who actually *enjoys* solving problems and making tech useful.  
+If that sounds like the kind of person you’d want around, we should talk.`,
+        },
+      ];
+
+      function mdToHTML(md) {
+        // Minimal MD → HTML: headings, bold, italics, links, lists, line breaks
+        let html = md
+          .replace(/^### (.*)$/gm, "<h3>$1</h3>")
+          .replace(/^## (.*)$/gm, "<h2>$1</h2>")
+          .replace(/^# (.*)$/gm, "<h1>$1</h1>")
+          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+          .replace(/\*(.*?)\*/g, "<em>$1</em>")
+          .replace(
+            /\[(.*?)\]\((.*?)\)/g,
+            '<a href="$2" target="_blank" rel="noopener">$1</a>'
+          )
+          .replace(/^\- (.*)$/gm, "<li>$1</li>")
+          .replace(/^\s*---+\s*$/gm, "<hr>")
+          .replace(/\n{2,}/g, "</p><p>") // Paragraphs
+          .replace(/([^\n]+)(?=\n|$)/g, "<p>$1</p>"); // Only wrap non-empty lines
+        // Wrap list items
+        html = html.replace(/(<li>.*<\/li>)/gs, "<ul>$1</ul>");
+        // Remove <p> around block elements
+        html = html.replace(/<p>(<(h[1-3]|ul|hr)[^>]*>)/g, "$1");
+        html = html.replace(/(<\/h[1-3]>|<\/ul>|<\/hr>)<\/p>/g, "$1");
+        return html;
+      }
+
+      const blogList = document.getElementById("blogList");
+      posts.forEach((p, i) => {
+        const article = document.createElement("article");
+        article.className = "post";
+        article.style.cursor = "pointer";
+        article.innerHTML = `
+    <div class="post-summary" style="display:flex;justify-content:space-between;align-items:center;">
+      <span><strong>${p.title}</strong></span>
+      <small>${p.date}</small>
+    </div>
+    <div class="post-content" style="display:none;margin-top:12px;">${mdToHTML(
+      p.content
+    )}</div>
+  `;
+        article.addEventListener("click", function (e) {
+          // Only toggle if clicking the summary, not inside the content
+          if (e.target.closest(".post-summary")) {
+            const content = article.querySelector(".post-content");
+            content.style.display =
+              content.style.display === "none" ? "block" : "none";
+          }
+        });
+        blogList.appendChild(article);
+      });
+
+      // ======= Contact: mailto with form values (GitHub Pages compatible) =======
+      const contactForm = document.getElementById("contactForm");
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const data = new FormData(contactForm);
+        const name = encodeURIComponent(data.get("name"));
+        const email = encodeURIComponent(data.get("email"));
+        const subject = encodeURIComponent(data.get("subject"));
+        const message = encodeURIComponent(data.get("message"));
+        const to = "your.email@example.com"; // <-- replace with your address
+        const body = `From:%20${name}%20(%3C${email}%3E)%0D%0A%0D%0A${message}`;
+        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      });
+
+      // ======= Keyboard access: skip to content with ";" =======
+      document.addEventListener("keydown", (e) => {
+        if (e.key === ";")
+          document.getElementById("home").focus({ preventScroll: false });
+      });
+    </script>
+  </body>
+</html>
